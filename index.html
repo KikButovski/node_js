@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="top">
+        <div class="head-element">
+            <p>Бюджет</p>
+            <p id="budget">100000</p>
+        </div>
+
+        <div class="head-element">
+            <p>Количество джунов</p>
+            <p id="juniors-cound">0</p>
+        </div>
+
+        <div class="head-element">
+            <p>Количество мидлов</p>
+            <p id="middles-cound">0</p>
+        </div>
+
+        <div class="head-element">
+            <p>Количество сеньоров</p>
+            <p id="seniors-cound">0</p>
+        </div>
+        
+        <div class="add-dell">
+            <p>старый уровень <input type="text" id="oldLvl"></p> 
+            <p>новый уровень <input type="text" id="newLvl"></p>
+            <input type="button" value="изменить уровень разработчика" id="lvlChange">
+        </div>
+
+        <div class="add-dell">
+            <input type="text" id="lvlDeveloper">
+            <input type="button" value="удалить разработчика" id="deleteDeveloper">
+        </div>
+
+        <div class="add-dell">
+            <input type="text" id="lvlManager">
+            <input type="button" value="удалить менеджера" id="deleteManager">
+        </div>
+
+        <div class="head-element">
+            <p>Количество менеджеров</p>
+            <div>Обычный <p id="rare-cound">0</p></div>
+            <div>Средний <p id="epic-cound">0</p></div> 
+            <div>Лучший <p id="legendary-cound">0</p></div> 
+        </div>
+    </div>
+
+    <div id="project-panel">
+        <div id="add-project-panel">
+
+            <div class="office-panel" id="office-project-panel">   
+                <p>Количество junior разработчиков
+                    <input type="number" size="3" name="" id="junior-number-on-project">
+                </p> 
+                <p>Количество middle разработчиков
+                    <input type="number" size="3" name="" id="middle-number-on-project">
+                </p>    
+                <p>Количество senior разработчиков
+                    <input type="number" size="3" name="" id="senior-number-on-project">
+                </p>
+                <form action=""></form>
+                <p><b>Выберите уровень проекта</b></p>
+                 <p><input type="button" value="start project" id="easy"> Обычный (требуется обычный менеджер)</p>
+                 <p><input type="button" value="start project" id="normal"> Средний (требуется средний менеджер)</p>
+                 <p><input type="button" value="start project" id="hard"> Сложный (требуется лучший менеджер)</p>
+            </div> 
+             
+        </div>
+    </div>
+
+    <div class="office panel" id="office-shop-panel">
+        <div>
+            <p><input id="add-junior" type="submit" value="Нанять джуна">(зп 200, кпд 1000 строк)</p>
+            <p><input id="add-middle" type="submit" value="Нанять мидла">(зп 800. кпд 3000 строк)</p>
+            <p><input id="add-senior" type="submit" value="Нанять сеньора">(зп 2000, кпд 10000 строк)</p>            
+        </div>
+
+        <p><input id="add-rare-manager" type="button" value="Нанять обычного менеджера">(зп 200, кпд х0.5)</p>
+        <p><input id="add-epic-manager" type="button" value="Нанять среднего менеджера">(зп 800, кпд х0.7)</p>
+        <p><input id="add-legendary-manager" type="button" value="Нанять лучшего менеджера">(зп 2000, кпд х1)</p>
+    </div>
+    <script src="./script/classes/developer.js"></script>
+    <script src="./script/classes/manager.js"></script>
+    <script src="./script/classes/project.js"></script>
+    <script src="./script/workers.js"></script>
+    <script src="./script/run.js"></script>
+    <script src="./script/handlers.js"></script>
+    <script src="./script/script.js"></script>
+</body>
+</html>
