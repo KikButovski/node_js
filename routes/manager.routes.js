@@ -13,31 +13,24 @@ class ManagersRouter {
     }
 
     __configure() {
-        this.__router.get('/:lvl', (req, res) => {
-            const {lvl} = req.params;
 
-            res.json(
-                managerController.findOne(lvl)
-            );
-        });
-
-        this.__router.delete('/', (req, res) => {
+        this.__router.delete('/', async (req, res) => {
             const {lvl} = req.body;
-                managerController.deleteOne(lvl);
-                res.status(200).end();
+            await managerController.deleteOne(lvl);
+            res.status(200).end();
     
         });
 
-        this.__router.post('/', (req, res) => {
+        this.__router.post('/', async (req, res) => {
             const {body} = req;
 
-            managerController.create(body);
+            await managerController.create(body);
 
             res.status(201).end();
         });
 
-        this.__router.get('/', (req, res) => {
-            res.json(managerController.findAll());
+        this.__router.get('/', async (req, res) => {
+            res.json(await managerController.findAll());
         });
     }
 }

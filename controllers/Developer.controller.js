@@ -1,33 +1,22 @@
-const {developers} = require('../mocks/developers.mock');
 const {Developer} = require('../models/Developer');
+const {developerRepository} = require('../repositories/developer.repository')
  
 class DeveloperController {
-    findOne(lvl) {
-        return developers.find(
-            ({lvl: level}) => level === lvl
-        );
+    
+    async findAll() {
+        return await developerRepository.getAll();
     }
 
-    findAll() {
-        return developers;
+    async create({lvl}) {
+        return await developerRepository.createOne(new Developer(lvl));
     }
 
-    create(lvl) {
-        const developer = new Developer(lvl);
-
-        developers.push(developer);
+    async updateOne(oldLvl, {lvl}) {
+        return await developerRepository.updateOne(oldLvl, new Developer(lvl));
     }
 
-    updateOne(oldLvl, {lvl}) {
-        this.deleteOne(oldLvl);
-        this.create(lvl);
-    }
-
-    deleteOne(lvl) {
-        const index = developers.findIndex(d =>(d.lvl === lvl));
-        if (index >= 0) {
-            developers.splice(index, 1);
-        }
+    async deleteOne(lvl) {
+        return await developerRepository.deleteOne(lvl);
     }
 }
 

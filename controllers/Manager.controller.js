@@ -1,27 +1,18 @@
-const {managers} = require('../mocks/managers.mock');
 const {Manager} = require('../models/Manager');
+const {managerRepository} = require('../repositories/manager.repository')
  
 class ManagerController {
-    findOne(lvl) {
-        return managers.find(
-            ({lvl: level}) => level === lvl
-        );
+    
+    async findAll() {
+        return await managerRepository.getAll();
     }
 
-    findAll() {
-        return managers;
+    async create({lvl}) {
+        return await managerRepository.createOne(new Manager(lvl));
     }
 
-    create({lvl}) {
-        const manager = new Manager(lvl);
-
-        managers.push(manager);
-    }
-
-    deleteOne(lvl) {
-        const index = managers.findIndex(m =>(m.lvl === lvl));
-        managers.splice(index, 1);
-
+    async deleteOne(lvl) {
+        return await managerRepository.deleteOne(lvl);
     }
 }
 
